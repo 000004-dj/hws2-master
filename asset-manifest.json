@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/000004-dj/hws2-master.git/static/css/main.a2a52e77.css",
-    "main.js": "/000004-dj/hws2-master.git/static/js/main.05e2c186.js",
-    "static/js/787.66cb4309.chunk.js": "/000004-dj/hws2-master.git/static/js/787.66cb4309.chunk.js",
-    "index.html": "/000004-dj/hws2-master.git/index.html",
-    "main.a2a52e77.css.map": "/000004-dj/hws2-master.git/static/css/main.a2a52e77.css.map",
-    "main.05e2c186.js.map": "/000004-dj/hws2-master.git/static/js/main.05e2c186.js.map",
-    "787.66cb4309.chunk.js.map": "/000004-dj/hws2-master.git/static/js/787.66cb4309.chunk.js.map"
+    "main.css": "/hws2-master/static/css/main.a2a52e77.css",
+    "main.js": "/hws2-master/static/js/main.0dacde2b.js",
+    "static/js/787.66cb4309.chunk.js": "/hws2-master/static/js/787.66cb4309.chunk.js",
+    "index.html": "/hws2-master/index.html",
+    "main.a2a52e77.css.map": "/hws2-master/static/css/main.a2a52e77.css.map",
+    "main.0dacde2b.js.map": "/hws2-master/static/js/main.0dacde2b.js.map",
+    "787.66cb4309.chunk.js.map": "/hws2-master/static/js/787.66cb4309.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a2a52e77.css",
-    "static/js/main.05e2c186.js"
+    "static/js/main.0dacde2b.js"
   ]
 }
