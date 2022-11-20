@@ -36,15 +36,20 @@ const defaultAffairs: Array<AffairType> = [ // need to fix any
 
 // pure helper functions
 export const filterAffairs = (affairs: Array<AffairType>, filtered: FilterType):   Array<AffairType> => { // need to fix any
-    let affairsArray: Array<AffairType>=[];
+ // if(filtered !== "all"){
+ //     return affairs.filter(i => i.priority === filtered)
+ // }
+ // return affairs
+    debugger
+ let affairsArray: Array<AffairType>=[];
     if (filtered === "all") {
-        affairsArray= affairs
+        affairsArray = affairs
     } else if (filtered === 'high') {
-        affairsArray = defaultAffairs.filter(item => item.priority === 'high')
+        affairsArray = affairs.filter(item => item.priority === 'high')
     } else if (filtered === 'middle') {
-        affairsArray = defaultAffairs.filter(item => item.priority === 'middle')
+        affairsArray = affairs.filter(item => item.priority === 'middle')
     }else if (filtered === 'low'){
-        affairsArray = defaultAffairs.filter(item => item.priority === 'low')
+        affairsArray = affairs.filter(item => item.priority === 'low')
     }
 
     return affairsArray // need to fix
