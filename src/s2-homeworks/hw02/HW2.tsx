@@ -16,12 +16,12 @@ import s2 from '../../s1-main/App.module.css'
 * 11 - в файле Affair.tsx отобразить приходящие данные
 * */
 
-// types
-export type AffairPriorityType = 'high' | 'low' | 'middle';// need to fix any
+
+export type AffairPriorityType = 'high' | 'low' | 'middle'
 export type AffairType = {
-    _id: number // need to fix any
-    name: string // need to fix any
-    priority: AffairPriorityType
+    _id: number
+    name: string
+    priority: FilterType
 }
 export type FilterType = 'all' | AffairPriorityType;
 
@@ -35,40 +35,37 @@ const defaultAffairs: Array<AffairType> = [ // need to fix any
 ]
 
 // pure helper functions
-export const filterAffairs = (affairs: Array<AffairType>, filtered: FilterType):   Array<AffairType> => { // need to fix any
- // if(filtered !== "all"){
- //     return affairs.filter(i => i.priority === filtered)
- // }
- // return affairs
-    debugger
- let affairsArray: Array<AffairType>=[];
-    if (filtered === "all") {
-        affairsArray = affairs
-    } else if (filtered === 'high') {
-        affairsArray = affairs.filter(item => item.priority === 'high')
-    } else if (filtered === 'middle') {
-        affairsArray = affairs.filter(item => item.priority === 'middle')
-    }else if (filtered === 'low'){
-        affairsArray = affairs.filter(item => item.priority === 'low')
+export const filterAffairs = (affairs: Array<AffairType>, filtered: FilterType): Array<AffairType> => { // need to fix any
+    if (filtered !== "all") {
+        return affairs.filter(i => i.priority === filtered)
     }
-
-    return affairsArray // need to fix
+    return affairs
+    //    debugger
+    // let affairsArray: Array<AffairType>=[];
+    //    if (filtered === "all") {
+    //        affairsArray = affairs
+    //    } else if (filtered === 'high') {
+    //        affairsArray = affairs.filter(item => item.priority === 'high')
+    //    } else if (filtered === 'middle') {
+    //        affairsArray = affairs.filter(item => item.priority === 'middle')
+    //    }else if (filtered === 'low'){
+    //        affairsArray = affairs.filter(item => item.priority === 'low')
+    //    }
+    //
+    //    return affairsArray // need to fix
 }
 
-export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => { // need to fix any
-        const updatedAffairs = affairs.filter(item => item._id !== _id)
-    return updatedAffairs // need to fix
-}
+export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => affairs.filter(item => item._id !== _id)
+
+
 
 function HW2() {
     const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs) // need to fix any
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter)
-    const deleteAffairCallback = (_id: number) => { // need to fix any
-        setAffairs(deleteAffair(affairs, _id))
-        // need to fix
-    }
+    const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id))
+
 
     return (
         <div id={'hw2'}>

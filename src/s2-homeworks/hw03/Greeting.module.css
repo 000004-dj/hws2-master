@@ -2,30 +2,54 @@
 }
 
 .inputAndButtonContainer {
+    display: grid;
+    grid-template-columns: 0.15fr 1fr;
 }
 
 .error {
+    color: red;
 }
 
 .input {
+
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    width: 372px;
+    height: 36px;
 }
 
 .input:focus {
+
 }
 
 .errorInput {
+    border: 1px solid red;
+    border-radius: 5px;
+    width: 372px;
+    height: 36px;
 }
 
 .button {
+    background: #0066CC;
+    border-radius: 3px;
+    color: #FFFFFF;
+    width: 78px;
+    height: 36px;
+    display: inline;
 }
 
-.button:focus {
+.button:hover {
+    background: #0066CC;
+    opacity: 0.7;
 }
 
 .button:active {
+    border: 1px solid #CC0000;
 }
 
 .button:disabled {
+    background: #0066CC;
+    opacity: 0.5;
 }
 
 .text {
