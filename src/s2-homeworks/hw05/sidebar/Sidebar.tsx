@@ -31,26 +31,28 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         id={'hw5-pre-junior-link'}
                         to={PATH.PRE_JUNIOR}
                         onClick={handleClose}
-                        className={({isActive})=> isActive ? s.active : s.nav}
+                        //  // делает студент
+                        className={({ isActive }) => isActive ? s.active : ""  }
                     >
-                         Pre-junior
+                        Pre-junior
                     </NavLink>
                     <NavLink
                         id={'hw5-junior-link'}
                         to={PATH.JUNIOR}
                         onClick={handleClose}
-                        className={({isActive})=> isActive ? s.active : s.nav}
+                        className={({ isActive }) => isActive ? s.active : ""  }
+                        // className={...} // делает студент
                     >
-                         Junior
+                        Junior
                     </NavLink>
-
                     <NavLink
                         id={'hw5-junior-plus-link'}
                         to={PATH.JUNIOR_PLUS}
                         onClick={handleClose}
-                        className={({isActive})=> isActive ? s.active : s.nav}
+                        className={({ isActive }) => isActive ? s.active : ""  }
+                        // className={...} // делает студент
                     >
-                         Junior Plus
+                        Junior Plus
                     </NavLink>
                 </nav>
             </aside>

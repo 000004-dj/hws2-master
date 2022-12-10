@@ -1,3 +1,4 @@
+
 .sidebar {
 }
 
@@ -17,10 +18,8 @@
 }
 
 .nav a.active {
-    color: #000;
-    margin-left: 10px ;
+    color: #00cc22;
 }
-
 .close {
 }
 
