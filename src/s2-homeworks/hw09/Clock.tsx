@@ -11,11 +11,13 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false)
 
     const start = () => {
-        const id: number = window.setInterval(() => {
-            console.log("On")
-            setDate(date + 1)
-        }, 0)
+        const id: number = +setInterval(() => {
+            console.log("before")
+            setDate(stringTime)
+            console.log("after")
+        }, 1000)
         setTimerId(id)
+
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
     }
