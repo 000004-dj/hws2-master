@@ -24,6 +24,7 @@ function Clock() {
     const stop = () => {
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
         clearTimeout(timerId)
+        setTimerId(0)
     }
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
@@ -34,7 +35,7 @@ function Clock() {
     }
 
     const stringTime = moment().format('kk:mm:ss') || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate = moment().format('L') || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    const stringDate = moment().format('DD.MM.YYYY') || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
     const stringDay = moment().format('dddd') || <br/> // пишут студенты
@@ -72,14 +73,14 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={!!timerId} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={timerId ? true : false} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
                     start
                 </SuperButton>
                 <SuperButton
                     id={'hw9-button-stop'}
-                    disabled={!timerId} // пишут студенты // задизэйблить если таймер не запущен
+                    disabled={timerId ? false : true} // пишут студенты // задизэйблить если таймер не запущен
                     onClick={stop}
                 >
                     stop
