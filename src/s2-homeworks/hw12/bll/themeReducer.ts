@@ -6,11 +6,9 @@ type ActionType = {
 
 const initState = {
     themeId: 1,
-    id: 0
 }
 type InitStateType = {
     themeId: number,
-    id: number
 }
 
 
