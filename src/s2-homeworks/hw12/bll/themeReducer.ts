@@ -6,23 +6,26 @@ type ActionType = {
 
 const initState = {
     themeId: 1,
+    id: 0
 }
 type InitStateType = {
     themeId: number,
+    id: number
 }
 
 
-export const themeReducer = (state = initState, action: ActionType): any => { // fix any
+export const themeReducer = (state = initState, action: ActionType): InitStateType => { // fix any
     switch (action.type) {
         // дописать
             case 'SET_THEME_ID':
                 return {
                     ...state,
-                    id: action.id
+                    id: action.id,
+
                 }
         default:
             return state
     }
 }
 
-export const changeThemeId = (id: number): any => ({ type: 'SET_THEME_ID', id }) // fix any
+export const changeThemeId = (id: number): ActionType => ({ type: 'SET_THEME_ID', id }) // fix any
