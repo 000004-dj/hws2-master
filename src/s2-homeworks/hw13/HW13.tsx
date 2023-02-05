@@ -36,8 +36,8 @@ const HW13 = () => {
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                setText(res.data.info)
-                setInfo("...всё ок)")
+                setInfo(res.data.info)
+                setText(res.data.errorText)
                 console.log(res.data)
             })
             .catch((e: any) => {
@@ -47,6 +47,7 @@ const HW13 = () => {
                         setImage(errorUnknown)
                         setCode(e.response.status)
                         setInfo("Error")
+                        setText(e.response.statusMessage)
                         break
                     case undefined:
                         setImage(error400)
