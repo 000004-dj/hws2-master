@@ -51,14 +51,14 @@ const HW13 = () => {
                     case undefined:
                         setImage(error400)
                         setCode(e.response.status)
-                        setInfo("Ты не отправил success в body вообще!")
-                        setText("Ты не отправил success в body вообще!")
+                        setInfo(e.response.data.info)
+                        setText(e.response.data.errorText)
                         break
                     case false:
                         setImage(error500)
                         setCode(e.response.status)
-                        setInfo("эмитация ошибки на сервере")
-                        setText("эмитация ошибки на сервере")
+                        setInfo(e.response.data.info)
+                        setText(e.response.data.errorText)
                         break
                     default:
                         setImage(errorUnknown)
