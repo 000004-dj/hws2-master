@@ -45,18 +45,17 @@ const HW13 = () => {
                 switch (x) {
                     case null:
                         setImage(errorUnknown)
-                        setCode("Error")
+                        setCode(e.response.status)
                         setInfo("Error")
-                            break
+                        break
                     case undefined:
                         setImage(error400)
-                        setCode("Ты не отправил success в body вообще!")
+                        setCode(e.response.status)
                         setInfo("Ты не отправил success в body вообще!")
-
                         break
                     case false:
                         setImage(error500)
-                        setCode("эмитация ошибки на сервере")
+                        setCode(e.response.status)
                         setInfo("эмитация ошибки на сервере")
                         break
                     default:
