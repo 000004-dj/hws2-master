@@ -36,29 +36,28 @@ const HW13 = () => {
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                setText(res.data.errorText)
+                setText(res.data.info)
                 setInfo("")
                 console.log(res.data)
             })
             .catch((e: any) => {
-                console.log(e.message)
+                console.log(e)
                 switch (x) {
                     case null:
                         setImage(errorUnknown)
                         setCode(e.message)
-                        setInfo("")
-
+                        setInfo("Error")
                             break
                     case undefined:
                         setImage(error400)
                         setCode(e.message)
-                        setInfo("")
+                        setInfo("Ты не отправил success в body вообще!")
 
                         break
                     case false:
                         setImage(error500)
                         setCode(e.message)
-                        setInfo("")
+                        setInfo("эмитация ошибки на сервере")
                         break
                     default:
                         setImage(errorUnknown)
