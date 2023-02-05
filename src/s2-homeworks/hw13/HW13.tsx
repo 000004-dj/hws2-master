@@ -37,7 +37,7 @@ const HW13 = () => {
                 setCode('Код 200!')
                 setImage(success200)
                 setText(res.data.info)
-                setInfo("код 200 - обычно означает что скорее всего всё ок)")
+                setInfo("...всё ок)")
                 console.log(res.data)
             })
             .catch((e: any) => {
@@ -52,17 +52,18 @@ const HW13 = () => {
                         setImage(error400)
                         setCode(e.response.status)
                         setInfo("Ты не отправил success в body вообще!")
+                        setText("Ты не отправил success в body вообще!")
                         break
                     case false:
                         setImage(error500)
                         setCode(e.response.status)
                         setInfo("эмитация ошибки на сервере")
+                        setText("эмитация ошибки на сервере")
                         break
                     default:
                         setImage(errorUnknown)
                         setText('WTF?')
                         setInfo("")
-
                 }
                 // дописать
 
