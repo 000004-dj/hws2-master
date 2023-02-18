@@ -27,6 +27,7 @@ type ParamsType = {
     count: number
 }
 
+
 const getTechs = (params: ParamsType) => {
     return axios
         .get<{ techs: TechType[], totalCount: number }>(
@@ -50,11 +51,13 @@ const HW15 = () => {
     const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
-            .then((res) => {
+            .then((res: any) => {
                 // делает студент
-
+                const state = res.data
+                const techs = state.techs
                 // сохранить пришедшие данные
-
+                setTotalCount(res.data.totalCount)
+                setTechs(techs)
                 //
             })
     }
@@ -62,23 +65,22 @@ const HW15 = () => {
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
 
-        // setPage(
-        // setCount(
+        setPage(newPage)
+        setCount(newCount)
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery({newPage, newCount})
 
-        //
+        setSearchParams({page:newPage.toString()})
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        setSort(newSort)
+        setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery({page, count})
+        setSearchParams({page: page.toString()})
 
         //
     }
