@@ -56,7 +56,6 @@ const HW15 = () => {
                 // сохранить пришедшие данные
                 setTotalCount(res.data.totalCount)
                 setTechs(res.data.techs)
-                //
             })
     }
 
@@ -80,19 +79,14 @@ const HW15 = () => {
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-
         setSort(newSort)
         setPage(1) // при сортировке сбрасывать на 1 страницу
-
-
         sendQuery({sort, page, count})
         setSearchParams({page: "1", count:count.toString(), sort: newSort})
-
-        //
     }
 
+
     useEffect(() => {
-        debugger
         const params = Object.fromEntries(searchParams)
         sendQuery({page: +params.page, count: +params.count, sort: params.sort})
         setPage(+params.page )
