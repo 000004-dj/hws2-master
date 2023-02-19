@@ -48,6 +48,7 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
+
     const sendQuery = (params: ParamsType) => {
         setLoading(true)
         getTechs(params)
@@ -58,6 +59,7 @@ const HW15 = () => {
                 setTechs(res.data.techs)
             })
     }
+
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
@@ -84,7 +86,7 @@ const HW15 = () => {
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: +params.page || 1, count: +params.count || 4, sort: params.sort})
+        sendQuery({page: +params.page | 1, count: +params.count | 4, sort: params.sort})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
