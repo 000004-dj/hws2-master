@@ -2,6 +2,7 @@ import React, {ChangeEvent} from 'react'
 import SuperSelect from '../../../hw07/common/c5-SuperSelect/SuperSelect'
 import {Pagination} from '@mui/material'
 import s from './SuperPagination.module.css'
+import {it} from "node:test";
 
 export type SuperPaginationPropsType = {
     id?: string
@@ -16,18 +17,22 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
         page, itemsCountForPage, totalCount, onChange, id = 'hw15',
     }
 ) => {
-    const lastPage = totalCount/4 // пишет студент // вычислить количество страниц
+    const lastPage = Math.round( totalCount / itemsCountForPage)  // пишет студент // вычислить количество страниц
 
     const onChangeCallback = (event: React.ChangeEvent<unknown>, page: number) => {
-        onChange(page, lastPage)
-        console.log(itemsCountForPage)
+
+        onChange(page, itemsCountForPage)
+
+
         // пишет студен
     }
 
     const onChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
         onChange(page, +event.currentTarget.value)
 
-        // пишет студент
+        console.log(+event.currentTarget.value)
+
+
     }
 
     return (

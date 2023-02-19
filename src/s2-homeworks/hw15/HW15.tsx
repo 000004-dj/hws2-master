@@ -53,24 +53,29 @@ const HW15 = () => {
         getTechs(params)
             .then((res: any) => {
                 // делает студент
-                const state = res.data
-                const techs = state.techs
+                const techs = res.data.techs
                 // сохранить пришедшие данные
                 setTotalCount(res.data.totalCount)
-                setTechs(techs)
+                setTechs(res.data.techs)
+                console.log(techs)
                 //
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
+        // console.log("new page: " + newPage)
+        // console.log("new count: " +newCount)
 
+        setSearchParams({
+            page:newPage.toString(),
+            count: newCount.toString()
+        })
         setPage(newPage)
         setCount(newCount)
+        const queryObj = {page: newPage, count: newCount}
+        sendQuery(queryObj)
 
-        sendQuery({page, newCount})
-
-        setSearchParams({page:newPage.toString()})
     }
 
     const onChangeSort = (newSort: string) => {
@@ -80,9 +85,8 @@ const HW15 = () => {
         setPage(1) // при сортировке сбрасывать на 1 страницу
 
 
-        sendQuery({page, sort})
-        console.log(page, count)
-        setSearchParams({page: page.toString()})
+        sendQuery({sort, page, count})
+        setSearchParams({page: page.toString(), count:count.toString()})
 
         //
     }
@@ -92,6 +96,7 @@ const HW15 = () => {
         sendQuery({page: params.page, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
+        debugger
     }, [])
 
     const mappedTechs = techs.map(t => (
@@ -131,7 +136,6 @@ const HW15 = () => {
                         <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                     </div>
                 </div>
-
                 {mappedTechs}
             </div>
         </div>
