@@ -61,19 +61,15 @@ const HW15 = () => {
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-        // console.log("new page: " + newPage)
-        // console.log("new count: " +newCount)
-
+        setPage(newPage)
+        setCount(newCount)
+        const queryObj = {page: newPage, count: newCount, sort}
+        sendQuery(queryObj)
         setSearchParams({
             page:newPage.toString(),
             count: newCount.toString(),
             sort
         })
-
-        setPage(newPage)
-        setCount(newCount)
-        const queryObj = {page: newPage, count: newCount, sort}
-        sendQuery(queryObj)
     }
 
 
@@ -81,7 +77,7 @@ const HW15 = () => {
         // делает студент
         setSort(newSort)
         setPage(1) // при сортировке сбрасывать на 1 страницу
-        sendQuery({sort, page, count})
+        sendQuery({sort:newSort, page, count})
         setSearchParams({page: "1", count:count.toString(), sort: newSort})
     }
 
@@ -89,8 +85,8 @@ const HW15 = () => {
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
         sendQuery({page: +params.page, count: +params.count, sort: params.sort})
-        setPage(+params.page )
-        setCount(+params.count )
+        setPage(+params.page || 1)
+        setCount(+params.count || 4)
     }, [])
 
     const mappedTechs = techs.map(t => (
