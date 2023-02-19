@@ -67,7 +67,8 @@ const HW15 = () => {
 
         setSearchParams({
             page:newPage.toString(),
-            count: newCount.toString()
+            count: newCount.toString(),
+            sort
         })
 
         setPage(newPage)
@@ -85,7 +86,7 @@ const HW15 = () => {
 
 
         sendQuery({sort, page, count})
-        setSearchParams({page: "1", count:count.toString()})
+        setSearchParams({page: "1", count:count.toString(), sort: newSort})
 
         //
     }
@@ -93,7 +94,7 @@ const HW15 = () => {
     useEffect(() => {
         debugger
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: +params.page, count: +params.count, sort})
+        sendQuery({page: +params.page, count: +params.count, sort: params.sort})
         setPage(+params.page )
         setCount(+params.count )
     }, [])
