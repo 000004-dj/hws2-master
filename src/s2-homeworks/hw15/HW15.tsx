@@ -96,7 +96,6 @@ const HW15 = () => {
         sendQuery({page: params.page, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
-        debugger
     }, [])
 
     const mappedTechs = techs.map(t => (
